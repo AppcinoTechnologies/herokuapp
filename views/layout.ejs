@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Posigen</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <!--  
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+        
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+            
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/animate.min.css">
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/c3/c3.css">
+    <link rel="stylesheet" href="/styles/c3/c3.min.css">
+    <link rel="stylesheet" href="/styles/calendar/fullcalendar.css">
+    <link rel="stylesheet" href="/styles/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="/styles/calendar/fullcalendar.print.css">
+    <link rel="stylesheet" href="/styles/colorpicker/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="/styles/custom.css">
+    <link rel="stylesheet" href="/styles/datatables/css/demo_page.css">
+    <link rel="stylesheet" href="/styles/datatables/css/demo_table.css">
+    <link rel="stylesheet" href="/styles/datatables/css/demo_table_jui.css">
+    <link rel="stylesheet" href="/styles/datatables/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="/styles/datatables/css/jquery.dataTables_themeroller.css">
+    <link rel="stylesheet" href="/styles/datatables/tools/css/dataTables.tableTools.css">
+    <link rel="stylesheet" href="/styles/editor/external/google-code-prettify/prettify.css">
+    <link rel="stylesheet" href="/styles/editor/index.css">
+    <link rel="stylesheet" href="/styles/floatexamples.css">
+    <link rel="stylesheet" href="/styles/icheck/flat/_all.css">
+    <link rel="stylesheet" href="/styles/icheck/flat/aero.css">
+    <link rel="stylesheet" href="/styles/icheck/flat/blue.css">
+    <link rel="stylesheet" href="/styles/icheck/flat/flat.css">
+    <link rel="stylesheet" href="/styles/icheck/flat/green.css">
+    <link rel="stylesheet" href="/styles/icheck/flat/grey.css">
+    <link rel="stylesheet" href="/styles/icheck/flat/orange.css">
+    <link rel="stylesheet" href="/styles/icheck/flat/pink.css">
+    <link rel="stylesheet" href="/styles/icheck/flat/purple.css">
+    <link rel="stylesheet" href="/styles/icheck/flat/red.css">
+    <link rel="stylesheet" href="/styles/icheck/flat/yellow.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/ion.rangeSlider.css">
+    <link rel="stylesheet" href="/styles/ion.rangeSlider.skinFlat.css">
+    <link rel="stylesheet" href="/styles/maps/jquery-jvectormap-2.0.1.css">
+    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/styles/nprogress.css">
+    <link rel="stylesheet" href="/styles/progressbar/bootstrap-progressbar-3.3.0.css">
+    <link rel="stylesheet" href="/styles/select/select2.min.css">
+    <link rel="stylesheet" href="/styles/switchery/switchery.min.css">
+    <!--STYLES END-->
+  </head>
+
+  <body>
+    <%- body %>
+
+
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+        
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    
+    <!--TEMPLATES END-->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can 
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+      
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+          
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/autocomplete/countries.js"></script>
+    <script src="/js/autocomplete/jquery.autocomplete.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/c3/c3.js"></script>
+    <script src="/js/c3/c3.min.js"></script>
+    <script src="/js/cropping/cropper.min.js"></script>
+    <script src="/js/cropping/main.js"></script>
+    <script src="/js/cropping/main2.js"></script>
+    <script src="/js/custom.js"></script>
+    <script src="/js/dropzone/dropzone.js"></script>
+    <script src="/js/easypie/jquery.easypiechart.min.js"></script>
+    <script src="/js/echart/echarts-all.js"></script>
+    <script src="/js/echart/green.js"></script>
+    <script src="/js/editor/bootstrap-wysiwyg.js"></script>
+    <script src="/js/icheck/icheck.min.js"></script>
+    <script src="/js/input_mask/jquery.inputmask.js"></script>
+    <script src="/js/ion_range/ion.rangeSlider.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/knob/jquery.knob.min.js"></script>
+    <script src="/js/maps/gdp-data.js"></script>
+    <script src="/js/maps/jquery-jvectormap-2.0.1.min.js"></script>
+    <script src="/js/maps/jquery-jvectormap-us-aea-en.js"></script>
+    <script src="/js/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/js/moment.min.js"></script>
+    <script src="/js/moment.min2.js"></script>
+    <script src="/js/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="/js/nprogress.js"></script>
+    <script src="/js/parsley/parsley.min.js"></script>
+    <script src="/js/progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="/js/select/select2.full.js"></script>
+    <script src="/js/sidebar/classie.js"></script>
+    <script src="/js/sidebar/modernizr.custom.js"></script>
+    <script src="/js/sidebar/sidebarEffects.js"></script>
+    <script src="/js/skycons/skycons.js"></script>
+    <script src="/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="/js/switchery/switchery.min.js"></script>
+    <script src="/js/tags/jquery.tagsinput.min.js"></script>
+    <script src="/js/textarea/autosize.min.js"></script>
+    <script src="/js/validator/validator.js"></script>
+    <script src="/js/wizard/jquery.smartWizard.js"></script>
+    <!--SCRIPTS END-->
+  </body>
+</html>

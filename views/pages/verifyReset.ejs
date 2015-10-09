@@ -1,0 +1,34 @@
+<% include ../partials/headerLogin.ejs %>
+<body style="background:#F7F7F7;">
+    <div class="">
+        <div id="wrapper">
+            <div class="form">
+                <section class="login_content">
+                    <form action="/verifyReset" method="post">
+                    	<input type="hidden" value="<%= hash %>" name="hash"/>
+                        <h2 style="float: left;">Please enter new password</h2>
+                        <div>
+                            <input type="password" name="password" class="form-control" placeholder="New password" required="" />
+                            <input type="password" name="passwordAgain" class="form-control" placeholder="Retype password" required="" />
+                        </div>
+                        <div style="float: left;">
+                        	<input type="submit" class="btn btn-default submit" value="Submit" />
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+                            <div class="clearfix"></div>
+                            <br />
+                            <div>
+                            	<img style="width: 160px; margin-bottom: 5px;" src="/images/posigenlogo.png"/>
+                                <p>©2015 All Rights Reserved. PosiGen.com</p>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- form -->
+                </section>
+                <!-- content -->
+            </div>
+        </div>
+    </div>
+
+<% include ../partials/footerLogin.ejs %>

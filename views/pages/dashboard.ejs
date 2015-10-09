@@ -1,0 +1,171 @@
+<% include ../partials/header.ejs %>
+<link href="/styles/c3/c3.css" rel="stylesheet" type="text/css">
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<body class="nav-md">
+
+    <div class="container body">
+        <div class="main_container">
+
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="index.html" class="site_title"><span><i><img style="width:40px;" src="/images/posigenlogosmall.png"></i>PosiGen</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <% include ../partials/sidemenu.ejs %>
+                    <!-- /sidebar menu -->
+
+                    <!-- /menu footer buttons -->
+                    <% include ../partials/footermenu.ejs %>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <% include ../partials/topmenu.ejs %>
+            <!-- /top navigation -->
+
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                    	<div id="chart"></div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                    	<div id="chart1"></div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                    	<div id="chart2"></div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                    	<div id="chart3"></div>
+                    </div>
+
+                </div>
+                <br />
+                <!-- footer content -->
+
+                <% include ../partials/sitefooter.ejs %>
+                <!-- /footer content -->
+            </div>
+            <!-- /page content -->
+        </div>
+    </div>
+
+    <div id="custom_notifications" class="custom-notifications dsp_none">
+        <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+        </ul>
+        <div class="clearfix"></div>
+        <div id="notif-group" class="tabbed_notifications"></div>
+    </div>
+
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- chart js -->
+    <!-- bootstrap progress js -->
+    <script src="/js/progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="/js/nicescroll/jquery.nicescroll.min.js"></script>
+    <!-- icheck -->
+    <script src="/js/icheck/icheck.min.js"></script>
+    <!-- daterangepicker -->
+    <script type="text/javascript" src="/js/moment.min.js"></script>
+    <script src="/js/custom.js"></script>
+
+    <!-- flot js -->
+    <!--[if lte IE 8]><script type="text/javascript" src="/js/excanvas.min.js"></script><![endif]-->
+    
+    <script>
+       $(document).ready(function () {
+        var chart = c3.generate({
+   		 bindto: '#chart',
+    		data: {
+      			columns: [
+        			['data1', 30, 200, 100, 400, 150, 250],
+        			['data2', 50, 20, 10, 40, 15, 25]
+      			]
+    		}
+		});
+		
+		var chart1 = c3.generate({
+		bindto: '#chart1',
+		    data: {
+		        columns: [
+		            ['data1', 30, 200, 100, 400, 150, 250],
+		            ['data2', 130, 100, 140, 200, 150, 50]
+		        ],
+		        type: 'bar'
+		    },
+		    bar: {
+		        width: {
+		            ratio: 0.5 // this makes bar width 50% of length between ticks
+		        }
+		        // or
+		        //width: 100 // this makes bar width 100px
+		    }
+		});
+		
+		var chart3 = c3.generate({
+		bindto: '#chart2',
+		    data: {
+		        // iris data from R
+		        columns: [
+		            ['data1', 30],
+		            ['data2', 120],
+		        ],
+		        type : 'pie',
+		        onclick: function (d, i) { console.log("onclick", d, i); },
+		        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+		        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+		    }
+		});
+		
+		var chart = c3.generate({
+		bindto: '#chart3',
+		    data: {
+		        columns: [
+		            ['data1', 30, 20, 50, 40, 60, 50],
+		            ['data2', 200, 130, 90, 240, 130, 220],
+		            ['data3', 300, 200, 160, 400, 250, 250],
+		            ['data4', 200, 130, 90, 240, 130, 220],
+		            ['data5', 130, 120, 150, 140, 160, 150],
+		            ['data6', 90, 70, 20, 50, 60, 120],
+		        ],
+		        type: 'bar',
+		        types: {
+		            data3: 'spline',
+		            data4: 'line',
+		            data6: 'area',
+		        },
+		        groups: [
+		            ['data1','data2']
+		        ]
+		    }
+		});
+		
+       });
+    </script>
+
+
+    <!-- datepicker -->
+    <script>
+        NProgress.done();
+    </script>
+    <!-- /datepicker -->
+    <!-- /footer content -->
+</body>
+
+<% include ../partials/footer.ejs %>
