@@ -115,6 +115,10 @@ module.exports.routes = {
 	'get /roles/delete/:id': {
 		controller: 'RoleController',
 		action: 'deleteObj'
+	},
+	'post /addRole': {
+		controller: 'RoleController',
+		action: 'add'
 	}
 
 };

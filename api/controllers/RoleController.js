@@ -5,12 +5,14 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+var message = null;
+
 module.exports = {
 	
 		roles: function(req, res) {
 	    	
 	    	Roles.find().exec(function(err, roles) {
-	    			req.flash('message', '');
+	    			req.flash('message', message);
 			        res.view('pages/roles/roles',{data:roles});
 			});
 	    	
@@ -23,15 +25,26 @@ module.exports = {
 			});
 			
 		},
+		add: function(req, res) {
+			Roles.create({name:req.param('name')}).exec(function(err, role) {
+				if(err){
+					req.flash('message', err);
+				}
+				else{
+					message = 'Record created successfully';
+					res.redirect('roles');
+				}
+			});
+			
+		},
 	    update: function(req, res) {
-	    	console.log(req.param('id'));
 	    	Roles.update({id:req.param('id')},{name:req.param('name')}).exec(function(err, role) {
 	    		if(err){
 	    			req.flash('message', err);
 	    			res.view('pages/roles/edit/'+req.param('id'));
 	    		}
 	    		else{
-	    			req.flash('message', 'Updated successfull');
+	    			message = 'Record updated successfully';
 	    			res.redirect('roles');
 	    		}
 	    	});
@@ -39,14 +52,13 @@ module.exports = {
 	    },
 
 		deleteObj: function(req, res) {
-			console.log(req.param('id'));
 			Roles.destroy({id:req.param('id')}).exec(function(err, role) {
 				if(err){
 					req.flash('message', err);
 					res.redirect('roles');
 				}
 				else{
-					req.flash('message', 'Deleted successfull');
+					message = 'Record deleted successfully';
 					res.redirect('roles');
 				}
 			});
