@@ -124,6 +124,14 @@ module.exports.routes = {
 	'get /loadLocusData': {
 		controller: 'LocusDataLoaderController',
 		action: 'run'
+	},
+	'get /loadLocusDataForSites': {
+		controller: 'LocusDataLoaderController',
+		action: 'runSites'
+	},
+	'get /updateModelSettingForSites': {
+		controller: 'LocusDataLoaderController',
+		action: 'updateModelSettingForSites'
 	}
 
 };

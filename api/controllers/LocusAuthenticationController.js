@@ -33,7 +33,7 @@ function scheduleRefreshToken(postData){
 	
 	var CronJob = require('cron').CronJob;
 	var job = new CronJob({
-	  cronTime: '00 55 * * * *',
+	  cronTime: '00 50 * * * *',
 	  onTick: function() {
 		  locusAuthorization(postData,false);
 	  },
@@ -69,7 +69,7 @@ function locusAuthorization(postData, check){
 			  });
 			  
 			  if(check){
-				 // scheduleRefreshToken(postData);
+				  scheduleRefreshToken(postData);
 			  }
 		  });
 		  res.on('end', function() {

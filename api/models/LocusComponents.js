@@ -8,18 +8,16 @@
 
 module.exports = {
 
+  tableName: "LocusComponents",
   attributes: {
-	   id: {
-		    type: 'integer',
-	   },
 	   siteId: {
-			type: 'bigint',
+			type: 'integer',
 		},
 		clientId: {
-            type: 'bigint',
+            type: 'integer',
         },
         parentId: {
-        	type: 'bigint',
+        	type: 'integer',
         },
         parentType: {
         	type: 'text',
@@ -31,7 +29,7 @@ module.exports = {
             type: 'string',
         },
         nodeType: {
-        	type: 'integer',
+        	type: 'string',
         },
         application: {
         	type: 'string',
@@ -52,6 +50,9 @@ module.exports = {
         	type: 'boolean',
         },
         partnerId: {
+        	type: 'integer',
+        },
+        componentId: {
         	type: 'integer',
         }
   }
