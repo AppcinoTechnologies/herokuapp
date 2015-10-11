@@ -102,7 +102,8 @@ module.exports.routes = {
 	},
 	'get /roles': {
 		controller: 'RoleController',
-		action: 'roles'
+		action: 'roles',
+		view: 'pages/roles/roles'
 	},
 	'get /roles/edit/:id': {
 		controller: 'RoleController',
@@ -119,6 +120,10 @@ module.exports.routes = {
 	'post /addRole': {
 		controller: 'RoleController',
 		action: 'add'
+	},
+	'get /loadLocusData': {
+		controller: 'LocusDataLoaderController',
+		action: 'run'
 	}
 
 };

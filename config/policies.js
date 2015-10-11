@@ -49,6 +49,8 @@ module.exports.policies = {
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
 		
+		
+		'*': "flash",
 		'*': "authenticated",
 	    AuthController: {
 	        '*': true,
@@ -56,4 +58,5 @@ module.exports.policies = {
 	    ForgotPasswordController: {
 	    	'*': true,
 	    }
+	    
 };
