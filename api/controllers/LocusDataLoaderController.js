@@ -7,6 +7,11 @@
 
 var https = require('https');
 var access_token = null;
+var startDate = '2012-01-01T00:00:00';
+var endDate = '2015-10-01T00:00:00';
+var tz = 'UTC';
+var gran = 'yearly';
+var fields = 'Wh_sum' ;
 module.exports = {
 	
 		run: function(request, response) {
@@ -170,6 +175,23 @@ module.exports = {
 				});
 			});
 			
+		},
+
+		updateModelSettingForComponent: function(request, response) {
+			var timeout = 0;
+			LocusComponents.find().exec(function(err, components) {
+				//console.log(components);
+				components.forEach(function(component){
+					setTimeout(function() {
+						//console.log('Component id-'+component.id);
+						getComponent(component.componentId);
+						//loadInstallerInfo(site.siteId);
+			        }, timeout );
+			        timeout += 1000;
+					
+				});
+			}); 
+			
 		}
 };
 
@@ -242,5 +264,81 @@ function loadModelSetting(siteId){
 		req.end(); 
 		
 	});
+
+
 }
 
+function getComponent(componentId) {
+	    console.log(componentId);
+	    LocusCredentials.findOne({ id: 1 }).exec(function(err, locus) {
+			var options = {
+				  hostname: 'api.locusenergy.com',
+				  path: '/v3/components/'+componentId+'/data'
+						  + '?start=' +startDate
+						  + '&end=' +endDate
+						  + '&tz='+tz
+						  + '&gran='+gran
+						  + '&fields='+fields,
+				  method: 'GET',
+				  headers: {
+						'Accept': 'application/json',
+						'Authorization': 'Bearer '+locus.accesstoken
+					}
+			};
+
+			var req = https.request(options, function(res) {
+					  res.setEncoding('utf8');
+					  var datavar = '';
+					  var j = 0;
+					  res.on('data', function (resp) {
+						  datavar += resp;
+						  //console.log(j);
+						  j++;
+					  });
+					  res.on('end', function() {
+						 var respreplaced = datavar.replace(/'/g, "\\'");
+						 var obj = JSON.parse(respreplaced);
+						 var tempSum;
+						 console.log('Status code-'+obj.statusCode);
+						 if(obj.statusCode == 200){
+							 obj.data.forEach(function(data){
+								 console.log('dataaa'+data.id);
+								 console.log(data.ts);
+								 console.log(data.Wh_sum);
+								 if(data.Wh_sum){
+								 	tempSum = parseFloat(data.Wh_sum);
+								 }
+								 else{
+								 	tempSum = null;
+								 }
+								 console.log('tempSum-'+tempSum);
+								 LocusComponentDetails.create(
+									{   
+										sum : tempSum,
+										period : gran,
+										componentId : parseInt(data.id),
+										ts : data.ts
+									}).exec(function(err, obj) {
+										if(err){
+											console.log(err);
+										}
+										else{
+											console.log('Success-'+obj);
+										}
+										console.log('done');
+								});
+								
+							 });
+							 
+						 }
+						 
+						console.log('No more data in response data loader.');
+					  });
+					});
+
+					req.on('error', function(e) {
+					  console.log('problem with request: ' + e.message);
+					});
+				req.end();		
+			});
+		}
